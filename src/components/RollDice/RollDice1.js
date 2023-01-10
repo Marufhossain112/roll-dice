@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import Dice from "../Dice/Dice";
 
-const RollDice1 = ({ sides }) => {
+const RollDice1 = ({
+  sides,
+  setPass,
+  setDisable,
+  setDisable2,
+  pass2,
+  disable,
+}) => {
+  // const [disable, setDisable] = useState(false);
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
@@ -15,21 +23,32 @@ const RollDice1 = ({ sides }) => {
       rolling: true,
       score: newScore[0] + score,
     });
+    setDisable(true);
+    setDisable2(false);
+    setPass(true);
     setTimeout(() => {
       setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
     });
   };
   const { dice1, rolling, score } = dice;
+  console.log("pass2", pass2);
+  console.log("disable", disable);
+
   return (
     <div>
       <div className="roll-dice">
-        <div className="roll-dice-container">
+        <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
-        <button onClick={roll} disabled={rolling}>
+        <button
+          className="btn btn-outline"
+          onClick={roll}
+          // disabled={pass2 ? `${disable ? "disabled" : ""}` : `disabled`}
+          disabled={pass2 ? `${disable ? "disabled" : ""}` : `disabled`}
+        >
           {rolling ? "Rolling..." : "Roll Dice"}
         </button>
-        <h2>Player 1 score is : {score}</h2>
+        <h2 className="mt-5 font-bold">Player 1 score is : {score}</h2>
       </div>
     </div>
   );

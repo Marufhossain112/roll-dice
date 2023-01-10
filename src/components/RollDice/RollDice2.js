@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import Dice from "../Dice/Dice";
 
-const RollDice2 = ({ sides }) => {
+const RollDice2 = ({
+  sides,
+  pass,
+  setPass2,
+  setDisable2,
+  disable2,
+  setDisable,
+}) => {
+  //   const [disable, setDisable] = useState(false);
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
@@ -10,26 +18,39 @@ const RollDice2 = ({ sides }) => {
   const roll = () => {
     const newDice = sides[Math.floor(Math.random() * sides.length)];
     const newScore = Object.values(newDice);
+    // setDisable(true);
+    // setPass2(true);
     setDice({
       dice1: Object.keys(newDice),
       rolling: true,
       score: newScore[0] + score,
     });
+    setDisable2(true);
+    setPass2(true);
+    setDisable(false);
     setTimeout(() => {
       setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
     });
   };
   const { dice1, rolling, score } = dice;
+  console.log("Pass", pass);
+  console.log("disable2", disable2);
+
   return (
     <div>
       <div className="roll-dice">
-        <div className="roll-dice-container">
+        <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
-        <button onClick={roll} disabled={rolling}>
+        <button
+          className="btn btn-outline"
+          onClick={roll}
+          disabled={pass ? `${disable2 ? "disabled" : ""}` : `disabled`}
+          //   disabled={pass ? "" : "disabled"}
+        >
           {rolling ? "Rolling..." : "Roll Dice"}
         </button>
-        <h2>Player 2 score is : {score}</h2>
+        <h2 className="mt-5 font-bold">Player 2 score is : {score}</h2>
       </div>
     </div>
   );
