@@ -11,6 +11,8 @@ const RollDice1 = ({
   setHide,
   setHide2,
   hide2,
+  setScore1,
+  // checkWinner,
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",
@@ -35,6 +37,8 @@ const RollDice1 = ({
     });
   };
   const { dice1, rolling, score } = dice;
+  setScore1(score);
+  // checkWinner();
   // console.log("pass2", pass2);
   // console.log("disable", disable);
 
