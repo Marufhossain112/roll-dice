@@ -7,7 +7,8 @@ function App() {
   const [disable2, setDisable2] = useState(false);
   const [pass, setPass] = useState(false);
   const [pass2, setPass2] = useState(true);
-  // console.log(pass);
+  const [hide, setHide] = useState(true);
+  const [hide2, setHide2] = useState(false);
 
   return (
     <div className="flex justify-around mx-auto w-[40%] relative items-center h-[100vh]">
@@ -17,6 +18,9 @@ function App() {
         setDisable={setDisable}
         setDisable2={setDisable2}
         disable={disable}
+        setHide={setHide}
+        setHide2={setHide2}
+        hide2={hide2}
       ></RollDice1>
       <RollDice2
         setPass2={setPass2}
@@ -24,6 +28,9 @@ function App() {
         setDisable={setDisable}
         setDisable2={setDisable2}
         disable2={disable2}
+        setHide={setHide}
+        setHide2={setHide2}
+        hide={hide}
       ></RollDice2>
     </div>
   );

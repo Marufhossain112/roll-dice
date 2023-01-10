@@ -8,8 +8,10 @@ const RollDice2 = ({
   setDisable2,
   disable2,
   setDisable,
+  setHide2,
+  setHide,
+  hide,
 }) => {
-  //   const [disable, setDisable] = useState(false);
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
@@ -18,8 +20,6 @@ const RollDice2 = ({
   const roll = () => {
     const newDice = sides[Math.floor(Math.random() * sides.length)];
     const newScore = Object.values(newDice);
-    // setDisable(true);
-    // setPass2(true);
     setDice({
       dice1: Object.keys(newDice),
       rolling: true,
@@ -28,6 +28,8 @@ const RollDice2 = ({
     setDisable2(true);
     setPass2(true);
     setDisable(false);
+    setHide2(false);
+    setHide(true);
     setTimeout(() => {
       setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
     });
@@ -39,6 +41,7 @@ const RollDice2 = ({
   return (
     <div>
       <div className="roll-dice">
+        <h1 className={hide ? "hidden" : "mb-5 text-xl "}>Player-2 turn</h1>
         <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
@@ -46,7 +49,6 @@ const RollDice2 = ({
           className="btn btn-outline"
           onClick={roll}
           disabled={pass ? `${disable2 ? "disabled" : ""}` : `disabled`}
-          //   disabled={pass ? "" : "disabled"}
         >
           {rolling ? "Rolling..." : "Roll Dice"}
         </button>

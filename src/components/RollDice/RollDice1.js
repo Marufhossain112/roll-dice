@@ -8,8 +8,10 @@ const RollDice1 = ({
   setDisable2,
   pass2,
   disable,
+  setHide,
+  setHide2,
+  hide2,
 }) => {
-  // const [disable, setDisable] = useState(false);
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
@@ -26,17 +28,20 @@ const RollDice1 = ({
     setDisable(true);
     setDisable2(false);
     setPass(true);
+    setHide(false);
+    setHide2(true);
     setTimeout(() => {
       setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
     });
   };
   const { dice1, rolling, score } = dice;
-  console.log("pass2", pass2);
-  console.log("disable", disable);
+  // console.log("pass2", pass2);
+  // console.log("disable", disable);
 
   return (
     <div>
       <div className="roll-dice">
+        <h1 className={hide2 ? "hidden" : "mb-5 text-xl "}>Player-1 turn</h1>
         <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
