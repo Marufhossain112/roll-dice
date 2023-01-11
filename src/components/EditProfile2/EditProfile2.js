@@ -1,18 +1,18 @@
 import React from "react";
 
-const EditProfile = ({ setName, setGender }) => {
+const EditProfile = ({ setName2, setGender2 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const form = event.target;
     const name = form.name.value;
     const gender = form.gender.value;
-    setName(name);
-    setGender(gender);
+    setName2(name);
+    setGender2(gender);
   };
   return (
     <>
-      <input type="checkbox" id="RollDice1" className="modal-toggle" />
+      <input type="checkbox" id="RollDice2" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <div className="form-container">
@@ -69,7 +69,7 @@ const EditProfile = ({ setName, setGender }) => {
           </div>
           <div className="modal-action">
             <label
-              htmlFor="RollDice1"
+              htmlFor="RollDice2"
               className="btn btn-outline bg-red-500 text-white"
             >
               Close

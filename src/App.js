@@ -13,6 +13,10 @@ function App() {
   const [score2, setScore2] = useState(0);
   const [winMsg1, setWinMsg1] = useState("Player-1 is winner");
   const [winMsg2, setWinMsg2] = useState("Player-2 is winner");
+  const [name, setName] = useState("");
+  const [name2, setName2] = useState("");
+  const [gender, setGender] = useState("");
+  const [gender2, setGender2] = useState("");
 
   if (score1 >= 20) {
     window.location.reload();
@@ -32,6 +36,10 @@ function App() {
           setHide2={setHide2}
           hide2={hide2}
           setScore1={setScore1}
+          setName={setName}
+          setGender={setGender}
+          name={name}
+          gender={gender}
           // checkWinner={checkWinner}
         ></RollDice1>
         <RollDice2
@@ -44,6 +52,10 @@ function App() {
           setHide2={setHide2}
           hide={hide}
           setScore2={setScore2}
+          setName2={setName2}
+          setGender2={setGender2}
+          name2={name2}
+          gender2={gender2}
         ></RollDice2>
         <div>
           {score1 >= 20 && (

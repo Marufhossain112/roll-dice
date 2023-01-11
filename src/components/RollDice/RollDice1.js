@@ -14,15 +14,19 @@ const RollDice1 = ({
   setHide2,
   hide2,
   setScore1,
+  setName,
+  setGender,
+  name,
+  gender,
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
     score: 0,
   });
-  const updateProfile = () => {
-    console.log("update profile");
-  };
+  // const updateProfile = () => {
+  // console.log("update profile");
+  // };
   const roll = () => {
     const newDice = sides[Math.floor(Math.random() * sides.length)];
     const newScore = Object.values(newDice);
@@ -42,6 +46,7 @@ const RollDice1 = ({
   };
   const { dice1, rolling, score } = dice;
   setScore1(score);
+  // console.log(name);
 
   return (
     <div>
@@ -49,16 +54,16 @@ const RollDice1 = ({
         <div className="flex items-center justify-between">
           {" "}
           <h1 className={hide2 ? "hidden" : "mb-5 text-xl "}>
-            Player-1 turn
+            {name ? `${name}'s` : "Player-1's"} turn
           </h1>{" "}
-          <label htmlFor="my-modal-6">
+          <br />
+          <label htmlFor="RollDice1">
             <FaUserEdit
-              onClick={updateProfile}
-              className={hide2 ? "hidden" : "mb-5"}
+              // onClick={updateProfile}
+              className={hide2 ? "hidden" : "mb-5 ml-2"}
             ></FaUserEdit>
           </label>
         </div>
-
         <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
@@ -70,9 +75,12 @@ const RollDice1 = ({
         >
           {rolling ? "Rolling..." : "Roll Dice"}
         </button>
-        <h2 className="mt-5 font-bold">Player 1 score is : {score}</h2>
+        <h2 className="mt-5 font-bold">
+          {" "}
+          {name ? `${name}'s` : "Player-1's"} score is : {score}
+        </h2>
       </div>
-      {<EditProfile></EditProfile>}
+      {<EditProfile setName={setName} setGender={setGender}></EditProfile>}
     </div>
   );
 };
