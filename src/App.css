@@ -27,6 +27,12 @@
 .App-link {
   color: #61dafb;
 }
+.roll-dice {
+  background: navajowhite;
+  padding: 19px 13px 35px 31px;
+  border-radius: 22px;
+  height: 295px;
+}
 
 @keyframes App-logo-spin {
   from {

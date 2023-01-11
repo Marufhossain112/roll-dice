@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dice from "../Dice/Dice";
+import { FaUserEdit } from "react-icons/fa";
 
 const RollDice1 = ({
   sides,
@@ -45,7 +46,13 @@ const RollDice1 = ({
   return (
     <div>
       <div className="roll-dice">
-        <h1 className={hide2 ? "hidden" : "mb-5 text-xl "}>Player-1 turn</h1>
+        <div className="flex items-center justify-between">
+          {" "}
+          <h1 className={hide2 ? "hidden" : "mb-5 text-xl "}>
+            Player-1 turn
+          </h1>{" "}
+          <FaUserEdit className={hide2 ? "hidden" : "mb-5"}></FaUserEdit>
+        </div>
         <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>

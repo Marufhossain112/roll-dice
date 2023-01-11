@@ -44,16 +44,15 @@ function App() {
           setHide2={setHide2}
           hide={hide}
           setScore2={setScore2}
-          // checkWinner={checkWinner}
         ></RollDice2>
         <div>
           {score1 >= 20 && (
-            <h1 className="text-green-500 text-2xl">{winMsg1}</h1>
+            <h1 className="text-green-500 text-2xl ml-5">{winMsg1}</h1>
           )}
         </div>
         <div>
           {score2 >= 20 && (
-            <h1 className="text-green-500  text-2xl">{winMsg2}</h1>
+            <h1 className="text-green-500  text-2xl ml-5">{winMsg2}</h1>
           )}
         </div>
       </div>
