@@ -25,7 +25,7 @@ function App() {
   }
   return (
     <>
-      <div className="flex justify-around mx-auto w-[40%] relative items-center h-[100vh]">
+      <div className="flex justify-around mx-auto w-[40%] relative items-center h-[100vh]  roller-container">
         <RollDice1
           setPass={setPass}
           pass2={pass2}
