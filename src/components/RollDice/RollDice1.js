@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Dice from "../Dice/Dice";
 import { FaUserEdit } from "react-icons/fa";
+import EditProfile from "../EditProfile/EditProfile";
 
 const RollDice1 = ({
   sides,
@@ -13,13 +14,15 @@ const RollDice1 = ({
   setHide2,
   hide2,
   setScore1,
-  // checkWinner,
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",
     rolling: false,
     score: 0,
   });
+  const updateProfile = () => {
+    console.log("update profile");
+  };
   const roll = () => {
     const newDice = sides[Math.floor(Math.random() * sides.length)];
     const newScore = Object.values(newDice);
@@ -39,9 +42,6 @@ const RollDice1 = ({
   };
   const { dice1, rolling, score } = dice;
   setScore1(score);
-  // checkWinner();
-  // console.log("pass2", pass2);
-  // console.log("disable", disable);
 
   return (
     <div>
@@ -51,8 +51,14 @@ const RollDice1 = ({
           <h1 className={hide2 ? "hidden" : "mb-5 text-xl "}>
             Player-1 turn
           </h1>{" "}
-          <FaUserEdit className={hide2 ? "hidden" : "mb-5"}></FaUserEdit>
+          <label htmlFor="my-modal-6">
+            <FaUserEdit
+              onClick={updateProfile}
+              className={hide2 ? "hidden" : "mb-5"}
+            ></FaUserEdit>
+          </label>
         </div>
+
         <div className="roll-dice-container mb-5 ml-5">
           <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
         </div>
@@ -66,6 +72,7 @@ const RollDice1 = ({
         </button>
         <h2 className="mt-5 font-bold">Player 1 score is : {score}</h2>
       </div>
+      {<EditProfile></EditProfile>}
     </div>
   );
 };
