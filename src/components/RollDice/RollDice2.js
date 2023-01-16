@@ -21,7 +21,6 @@ const RollDice2 = ({
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",
-    rolling: false,
     score: 0,
   });
   const roll = () => {
@@ -29,7 +28,6 @@ const RollDice2 = ({
     const newScore = Object.values(newDice);
     setDice({
       dice1: Object.keys(newDice),
-      rolling: true,
       score: newScore[0] + score,
     });
     setDisable2(true);
@@ -37,16 +35,9 @@ const RollDice2 = ({
     setDisable(false);
     setHide2(false);
     setHide(true);
-    setTimeout(() => {
-      setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
-    });
   };
-  const { dice1, rolling, score } = dice;
+  const { dice1, score } = dice;
   setScore2(score);
-  // console.log(name2, gender2);
-
-  // console.log("Pass", pass);
-  // console.log("disable2", disable2);
 
   return (
     <div>
@@ -61,14 +52,14 @@ const RollDice2 = ({
           </label>
         </div>
         <div className="roll-dice-container mb-5 ml-5">
-          <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
+          <Dice diceValue={String(dice1)}></Dice>
         </div>
         <button
           className="btn btn-outline"
           onClick={roll}
           disabled={pass ? `${disable2 ? "disabled" : ""}` : `disabled`}
         >
-          {rolling ? "Rolling..." : "Roll Dice"}
+          {"Roll Dice"}
         </button>
         <h2 className="mt-5 font-bold">
           {" "}

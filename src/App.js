@@ -11,8 +11,8 @@ function App() {
   const [hide2, setHide2] = useState(false);
   const [score1, setScore1] = useState(0);
   const [score2, setScore2] = useState(0);
-  const [winMsg1, setWinMsg1] = useState("Player-1 is winner");
-  const [winMsg2, setWinMsg2] = useState("Player-2 is winner");
+  const [winMsg1] = useState("Player-1 is winner");
+  const [winMsg2] = useState("Player-2 is winner");
   const [name, setName] = useState("");
   const [name2, setName2] = useState("");
   const [gender, setGender] = useState("");

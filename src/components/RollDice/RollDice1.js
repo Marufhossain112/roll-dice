@@ -17,22 +17,18 @@ const RollDice1 = ({
   setName,
   setGender,
   name,
-  gender,
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",
-    rolling: false,
     score: 0,
   });
-  // const updateProfile = () => {
-  // console.log("update profile");
-  // };
+
   const roll = () => {
     const newDice = sides[Math.floor(Math.random() * sides.length)];
+
     const newScore = Object.values(newDice);
     setDice({
       dice1: Object.keys(newDice),
-      rolling: true,
       score: newScore[0] + score,
     });
     setDisable(true);
@@ -40,13 +36,9 @@ const RollDice1 = ({
     setPass(true);
     setHide(false);
     setHide2(true);
-    setTimeout(() => {
-      setDice((prevDice) => ({ ...prevDice, rolling: false }), 1000);
-    });
   };
-  const { dice1, rolling, score } = dice;
+  const { dice1, score } = dice;
   setScore1(score);
-  // console.log(name);
 
   return (
     <div>
@@ -58,22 +50,18 @@ const RollDice1 = ({
           </h1>{" "}
           <br />
           <label htmlFor="RollDice1">
-            <FaUserEdit
-              // onClick={updateProfile}
-              className={hide2 ? "hidden" : "mb-5 ml-2"}
-            ></FaUserEdit>
+            <FaUserEdit className={hide2 ? "hidden" : "mb-5 ml-2"}></FaUserEdit>
           </label>
         </div>
         <div className="roll-dice-container mb-5 ml-5">
-          <Dice diceValue={String(dice1)} rolling={rolling}></Dice>
+          <Dice diceValue={String(dice1)}></Dice>
         </div>
         <button
           className="btn btn-outline"
           onClick={roll}
-          // disabled={pass2 ? `${disable ? "disabled" : ""}` : `disabled`}
           disabled={pass2 ? `${disable ? "disabled" : ""}` : `disabled`}
         >
-          {rolling ? "Rolling..." : "Roll Dice"}
+          {"Roll Dice"}
         </button>
         <h2 className="mt-5 font-bold">
           {" "}
