@@ -17,7 +17,6 @@ const RollDice2 = ({
   setName2,
   setGender2,
   name2,
-  gender2,
 }) => {
   const [dice, setDice] = useState({
     dice1: "six",

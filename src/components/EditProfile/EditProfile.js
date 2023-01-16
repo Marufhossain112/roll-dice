@@ -3,7 +3,6 @@ import React from "react";
 const EditProfile = ({ setName, setGender }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const form = event.target;
     const name = form.name.value;
     const gender = form.gender.value;
